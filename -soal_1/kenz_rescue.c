@@ -12,8 +12,7 @@
 #include <sys/types.h>
 #include <limits.h>
 
-static char source_path[PATH_MAX];
-
+static char source_path[PATH_MAX];   
 #define VIRTUAL_FILE "/tujuan.txt"
 
 static void build_source_path(char *buf, const char *fuse_path)
@@ -27,7 +26,7 @@ static char *build_tujuan_content(void)
     int  first = 1;
 
     for (int i = 1; i <= 7; i++) {
-        char filepath[PATH_MAX];
+        char filepath[PATH_MAX];     // ← kembalikan ke PATH_MAX biasa
         snprintf(filepath, PATH_MAX, "%s/%d.txt", source_path, i);
 
         FILE *f = fopen(filepath, "r");
